@@ -33,5 +33,6 @@ namespace Model.Entities.Statistics
 
         public ReadOnlyReactiveProperty<float> ReactiveValue => _reactiveValue;
         public float Value => _currentValue;
+        public float BaseValue => _baseValue;
     }
 }
