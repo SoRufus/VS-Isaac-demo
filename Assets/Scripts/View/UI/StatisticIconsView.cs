@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Model.Entities.Player;
 using Model.Entities.Statistics;
-using UnityEngine;
-using Zenject;
 using R3;
+using UnityEngine;
+using UnityEngine.Serialization;
+using Zenject;
 
 namespace View.UI
 {
@@ -14,13 +16,13 @@ namespace View.UI
 
         [SerializeField] private Statistic _statistic;
         [SerializeField] private List<GameObject> _emptyContainers = new();
+        [SerializeField] private List<GameObject> _halfEmptyContainers = new();
         [SerializeField] private List<GameObject> _fullContainers = new();
-        [SerializeField] private bool _halfContainers;
 
         private StatisticData _statisticData;
         private IDisposable _disposable;
         
-        private void OnEnable()
+        private void Awake()
         {
             _statisticData = _player.GetStatisticData(_statistic);
             _disposable = _statisticData.ReactiveValue.Subscribe(OnStatisticValueChanged);
@@ -37,10 +39,12 @@ namespace View.UI
         {
             for (int i = 0; i < _emptyContainers.Count; i++)
             {
-                var value = _statisticData.BaseValue;
-                value /= _halfContainers ? 2 : 1;
-                
-                _emptyContainers[i].SetActive(i >= value);
+                _emptyContainers[i].SetActive(i < _statisticData.BaseValue);
+            }
+            
+            for (int i = 0; i < _halfEmptyContainers.Count; i++)
+            {
+                _halfEmptyContainers[i].SetActive(i < _statisticData.BaseValue / 2);
             }
         }
 
@@ -48,7 +52,7 @@ namespace View.UI
         {
             for (int i = 0; i < _fullContainers.Count; i++)
             {
-                _fullContainers[i].SetActive(i >= value);
+                _fullContainers[i].SetActive(i < value);
             }
         }
     }

@@ -31,14 +31,12 @@ namespace Model.Entities.Components
         
         private void OnEnable()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
-            
             InitStats();
         }
         
         private void OnDisable()
         {
-            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource?.Cancel();
         }
 
         private void InitStats()
@@ -55,6 +53,7 @@ namespace Model.Entities.Components
             
             if (!CanShoot()) return;
             
+            _cancellationTokenSource = new CancellationTokenSource();
             AutoShooting(_cancellationTokenSource.Token).Forget();
         }
 

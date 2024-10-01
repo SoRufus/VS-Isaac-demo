@@ -8,25 +8,48 @@ namespace Model.Entities.Components
     public class HealthComponent: EntityComponent
     {
         [SerializeField] private Statistic _healthStatistic;
+        [SerializeField] private bool _invincibilityAfterDamage;
         public event Action OnDeath;
 
+        private InvincibilityComponent _invincibilityComponent;
         private StatisticData _healthData;
         private IDisposable _disposable;
 
         private void OnEnable()
         {
             _healthData = Entity.GetStatisticData(_healthStatistic);
+            _invincibilityComponent = Entity.GetComponent<InvincibilityComponent>();
             _disposable = _healthData.ReactiveValue.Subscribe(OnHealthModified);
         }
 
         private void OnDisable()
         {
-            _disposable?.Dispose();;
+            _disposable?.Dispose();
         }
 
         public void ModifyHealth(float value)
         {
+            if (!CanDamage() && value < 0) return;
+            
             _healthData.ModifyValue(value);
+            TryApplyInvincibility();
+
+        }
+
+        private void TryApplyInvincibility()
+        {
+            if (!_invincibilityComponent) return; 
+            if (_invincibilityComponent.IsInvincible.CurrentValue) return;
+            if (!_invincibilityAfterDamage) return;
+            
+            _invincibilityComponent.Apply();
+        }
+
+        private bool CanDamage()
+        {
+            Debug.Log(_invincibilityComponent);
+            if (!_invincibilityComponent) return true;
+            return !_invincibilityComponent.IsInvincible.CurrentValue;
         }
 
         private void OnHealthModified(float value)
