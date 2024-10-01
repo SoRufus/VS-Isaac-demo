@@ -121,8 +121,14 @@ MonoBehaviour:
     _baseValue: 6
     _currentValue: 1
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 1a4e2997afd1ee34bb02fd15e4f98f26, type: 2}
-    _baseValue: 1
-    _currentValue: 1
+    _baseValue: 2
+    _currentValue: 2
+  - <Statistic>k__BackingField: {fileID: 11400000, guid: 6e9fd8054dd138443bb1f11a3d745214, type: 2}
+    _baseValue: 2
+    _currentValue: 2
+  - <Statistic>k__BackingField: {fileID: 11400000, guid: 433f4677498a94441b5f0ef7d91943ed, type: 2}
+    _baseValue: 0.2
+    _currentValue: 2
 --- !u!114 &8236544532693430933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +146,8 @@ MonoBehaviour:
   _attackSpeedStatistic: {fileID: 11400000, guid: 8561eaef305a1184798f6771005949b8, type: 2}
   _rangeStatistic: {fileID: 11400000, guid: 351a115bdda169448ac5676712091c67, type: 2}
   _shootingSpeedStatistic: {fileID: 11400000, guid: 05e93b7dbc5edd6448114f63429d62e8, type: 2}
+  _knockBackStrength: {fileID: 11400000, guid: 6e9fd8054dd138443bb1f11a3d745214, type: 2}
+  _knockBackDuration: {fileID: 11400000, guid: 433f4677498a94441b5f0ef7d91943ed, type: 2}
 --- !u!114 &556728730953136109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthStatistic: {fileID: 11400000, guid: 1bd8285b90238074eaaad09126db9eef, type: 2}
-  _invincibilityAfterDamage: 0
+  _invincibilityAfterDamage: 1
 --- !u!114 &4005817263007780
 MonoBehaviour:
   m_ObjectHideFlags: 0

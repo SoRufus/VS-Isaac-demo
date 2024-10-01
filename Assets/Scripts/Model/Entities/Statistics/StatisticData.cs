@@ -10,9 +10,9 @@ namespace Model.Entities.Statistics
         [field: SerializeField] public Statistic Statistic { get; private set; }
 
         [SerializeField] private float _baseValue = 1;
-        [SerializeField, Range(0, 10f)] private float _currentValue;
+        [SerializeField, Range(0, 10f)] private float _currentValue = 1;
         
-        private readonly ReactiveProperty<float> _reactiveValue = new();
+        private readonly ReactiveProperty<float> _reactiveValue = new(1);
 
         public void SetValue(float value)
         {

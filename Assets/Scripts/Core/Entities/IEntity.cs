@@ -1,6 +1,8 @@
-﻿namespace Core.Entities
+﻿using System;
+
+namespace Core.Entities
 {
-    public interface IEntity
+    public interface IEntity: IDisposable
     {
         
     }

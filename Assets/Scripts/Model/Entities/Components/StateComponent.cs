@@ -4,6 +4,7 @@ namespace Model.Entities.Components
 {
     public class StateComponent : EntityComponent
     {
+        //wip
         private readonly State _defaultState = new IdleState();
     
         private State _currentState;
@@ -23,7 +24,8 @@ namespace Model.Entities.Components
         public void ClearState()
         {
             _currentState?.OnDisposed();
-            ApplyState(_defaultState);
+            _currentState = _defaultState;
+            InitState();
         }
 
         private void InitState()

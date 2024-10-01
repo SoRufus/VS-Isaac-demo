@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1422387310588736905, guid: aa763f509f1fe774199080acdbb94065, type: 3}
       propertyPath: m_Name
-      value: Default Projectile
+      value: DefaultPlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 2052660678692993780, guid: aa763f509f1fe774199080acdbb94065, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51,6 +51,10 @@ PrefabInstance:
     - target: {fileID: 2052660678692993780, guid: aa763f509f1fe774199080acdbb94065, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631850759765201403, guid: aa763f509f1fe774199080acdbb94065, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: pro
       objectReference: {fileID: 0}
     - target: {fileID: 6637083665420949954, guid: aa763f509f1fe774199080acdbb94065, type: 3}
       propertyPath: _movementSpeedStatistic

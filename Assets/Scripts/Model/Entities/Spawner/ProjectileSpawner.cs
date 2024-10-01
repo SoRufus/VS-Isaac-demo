@@ -1,26 +1,37 @@
 ﻿using Model.Entities.Components;
 using Model.Entities.Projectiles;
-using Utils.Pool;
 
 namespace Model.Entities.Spawner
 {
     public class ProjectileSpawner
     {
-        private readonly EntityPool _entityPool;
+        private readonly EntityPoolManager _entityPoolManager;
         
-        public ProjectileSpawner(GameObjectFactory gameObjectFactory)
+        public ProjectileSpawner(EntityPoolManager entityPoolManager)
         {
-            _entityPool = new EntityPool(gameObjectFactory);
+            _entityPoolManager = entityPoolManager;
         }
 
         public void Spawn(EntitySpawnData spawnData, ProjectileData projectileData)
         {
-            var projectile = _entityPool.Get(spawnData);
+            var projectile = _entityPoolManager.Get<Projectile>(spawnData);
             projectile.GetComponent<MovementComponent>().SetVelocity(projectileData.Direction * projectileData.ShootingSpeed);
 
             var contactDamageComponent = projectile.GetComponent<ContactDamageComponent>();
             contactDamageComponent.SetContactDamage(projectileData.Damage);
-            contactDamageComponent.OnHit += () => _entityPool.Return(projectile);
+            contactDamageComponent.OnHit += (entity) => OnHit(projectile, entity, projectileData);
+            
+            projectile.DisposeAfterTime(projectileData.LifeTime);
+        }
+
+        private void OnHit(Entity projectile, Entity target, ProjectileData data)
+        {
+            if (target.TryGetComponent(out KnockBackComponent knockBackComponent))
+            {
+                knockBackComponent.Apply(data.Direction, data.KnockBackStrength, data.KnockBackDuration);
+            }
+            
+            projectile.Dispose();
         }
     }
 }

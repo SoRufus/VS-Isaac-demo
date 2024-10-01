@@ -1,8 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using Model.Entities.Components;
+using Model.Entities.Enemies;
 using UnityEngine;
-using Utils.Pool;
 
 namespace Model.Entities.Spawner
 {
@@ -12,14 +11,13 @@ namespace Model.Entities.Spawner
         private readonly EnemySpawnerConfig _config;
 
         private CancellationTokenSource _cancellationTokenSource;
-        private readonly EntityPool _entityPool;
+        private readonly EntityPoolManager _entityPoolManager;
 
-        public EnemySpawner(EnemySpawnerConfig config, Player.Player player, GameObjectFactory gameObjectFactory)
+        public EnemySpawner(EnemySpawnerConfig config, Player.Player player, EntityPoolManager entityPoolManager)
         {
             _config = config;
             _player = player;
-
-            _entityPool = new EntityPool(gameObjectFactory);
+            _entityPoolManager = entityPoolManager;
         }
 
         public void Start()
@@ -39,9 +37,11 @@ namespace Model.Entities.Spawner
         
         private void Spawn()
         {
-            var spawnData = new EntitySpawnData(_config.EntityPrefab, GetRandomPosition());
-            var entity = _entityPool.Get(spawnData);
-            entity.GetComponent<HealthComponent>().OnDeath += (() => _entityPool.Return(entity));
+            for (int i = 0; i < _config.Amount; i++)
+            {
+                var spawnData = new EntitySpawnData(_config.EntityPrefab, GetRandomPosition());
+                _entityPoolManager.Get<Enemy>(spawnData);
+            }
         }
 
         private Vector2 GetRandomPosition()
@@ -56,6 +56,7 @@ namespace Model.Entities.Spawner
 
         public void Dispose()
         {
+            _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
         }
     }

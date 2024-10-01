@@ -8,7 +8,7 @@ namespace Model.Entities.Components
     {
         [SerializeField] private Statistic _contactDamageStatistic;
 
-        public event Action OnHit;
+        public event Action<Entity> OnHit;
         
         private StatisticData _contactDamageData;
         private void OnEnable()
@@ -18,10 +18,13 @@ namespace Model.Entities.Components
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var healthComponent = other.GetComponentInParent<HealthComponent>();
+            var entity = other.GetComponentInParent<Entity>();
+            if (entity == null) return;
+            
+            var healthComponent = entity.GetComponent<HealthComponent>();
             if (healthComponent == null) return;
 
-            OnHit?.Invoke();
+            OnHit?.Invoke(entity);
             healthComponent.ModifyHealth(-_contactDamageData.Value);
         }
 

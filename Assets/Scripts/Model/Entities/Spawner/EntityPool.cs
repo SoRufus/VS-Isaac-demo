@@ -12,36 +12,27 @@ namespace Model.Entities.Spawner
         {
             _entityFactory = factory;
         }
-        
-        public EntityPool(GameObjectFactory factory, EntitySpawnData data, int initialSize = 0)
-        {
-            _entityFactory = factory;
-            
-            for (int i = 0; i < initialSize; i++)
-            { 
-                CreateNewObject(data.Entity);
-            }
-        }
 
         public Entity Get(EntitySpawnData data)
         {
-            if (_pool.Count == 0)
+            if (_pool.Count <= 0)
             {
                 _pool.Enqueue(CreateNewObject(data.Entity));
             }
             
             var entity = _pool.Dequeue();
             
+            entity.Spawn(data);
             entity.gameObject.SetActive(true);
-            entity.OnSpawned(data);
 
             return entity;
         }
 
         public void Return(Entity entity)
         {
+            if (!entity.gameObject.activeSelf) return;
+
             entity.gameObject.SetActive(false);
-            entity.OnDespawned();
             _pool.Enqueue(entity);
         }
         

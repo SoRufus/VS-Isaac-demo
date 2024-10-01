@@ -18,6 +18,8 @@ namespace Model.Entities.Components
         [SerializeField] private Statistic _attackSpeedStatistic;
         [SerializeField] private Statistic _rangeStatistic;
         [SerializeField] private Statistic _shootingSpeedStatistic;
+        [SerializeField] private Statistic _knockBackStrength;
+        [SerializeField] private Statistic _knockBackDuration;
 
         private Vector2 _direction = Vector2.zero;
         private CancellationTokenSource _cancellationTokenSource;
@@ -26,6 +28,8 @@ namespace Model.Entities.Components
         private StatisticData _rangeData;
         private StatisticData _damageData;
         private StatisticData _shootingSpeedData;
+        private StatisticData _knockBackStrengthData;
+        private StatisticData _knockBackDurationData;
 
         private bool _canShoot = true;
         
@@ -45,6 +49,8 @@ namespace Model.Entities.Components
             _rangeData = Entity.GetStatisticData(_rangeStatistic);
             _shootingSpeedData = Entity.GetStatisticData(_shootingSpeedStatistic);
             _damageData = Entity.GetStatisticData(_damageStatistic);
+            _knockBackStrengthData = Entity.GetStatisticData(_knockBackStrength);
+            _knockBackDurationData = Entity.GetStatisticData(_knockBackDuration);
         }
 
         public void SetShootingDirection(Vector2 direction)
@@ -75,7 +81,7 @@ namespace Model.Entities.Components
         {
             var spawnData = new EntitySpawnData(_weaponConfig.ProjectilePrefab, transform.position);
             var projectileData = new ProjectileData(_shootingSpeedData.Value, _damageData.Value, 
-                _rangeData.Value, _direction);
+                _rangeData.Value, _direction, _knockBackStrengthData.Value, _knockBackDurationData.Value);
             
             _projectileSpawner.Spawn(spawnData, projectileData);
         }
