@@ -127,7 +127,7 @@ Transform:
   m_Children:
   - {fileID: 6052522089872943139}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &7399621965212572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: c5ad87540a43b794da567054343c313e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 227a9375137068d4daebcb2dcd5157aa, type: 2}
 --- !u!114 &2741691786364522952
 MonoBehaviour:
   m_ObjectHideFlags: 0

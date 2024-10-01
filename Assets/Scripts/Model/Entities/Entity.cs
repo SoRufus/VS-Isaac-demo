@@ -18,8 +18,6 @@ namespace Model.Entities
         
         [field: SerializeField] public List<StatisticData> EntityStatistics { get; private set; }
         
-        [field: SerializeField] public string Name { get; private set; }
-        
         public event Action OnSpawned;
         public event Action OnDisposed;
         

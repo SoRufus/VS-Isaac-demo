@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Model.Leveling
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/" + nameof(LevelingConfig))]
-    public class LevelingConfig : ScriptableObject
+    [CreateAssetMenu(menuName = "ScriptableObjects/" + nameof(ExperienceConfig))]
+    public class ExperienceConfig : ScriptableObject
     {
-        [SerializeField] private List<int> _experienceRequiredPerLevel;
+        [SerializeField] private List<int> _experienceRequiredPerLevel = new();
 
         public int GetExperienceRequiredToLevelUp(int levelIndex)
         {

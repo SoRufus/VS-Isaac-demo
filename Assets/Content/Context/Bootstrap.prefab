@@ -58,7 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fc22703dc042fb9738a139c0b883e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpawnerConfig: {fileID: 0}
+  _enemySpawnerConfig: {fileID: 11400000, guid: 58c9d9c42b2dcc442b83ac8da07bed73, type: 2}
+  _expConfig: {fileID: 11400000, guid: 989d86950400b4641a1fd16827841663, type: 2}
 --- !u!1001 &792945929326043832
 PrefabInstance:
   m_ObjectHideFlags: 0
