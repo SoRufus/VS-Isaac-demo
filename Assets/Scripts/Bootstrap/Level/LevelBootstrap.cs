@@ -10,14 +10,13 @@ namespace Bootstrap.Level
     {
         [Inject] private readonly Player _player;
         [Inject] private readonly EntityPoolManager _playerPoolManager;
+        [Inject] private readonly ExperienceManager _experienceManager;
         
         [SerializeField] private EnemySpawnerConfig _enemySpawnerConfig;
-        [SerializeField] private ExperienceConfig _expConfig;
         
         private void Awake()
         {
             ConfigureSpawner();
-            ConfigureManagers();
         }
 
         private void ConfigureSpawner()
@@ -26,11 +25,6 @@ namespace Bootstrap.Level
             enemySpawner.Start();
             
             var projectileSpawner = new ProjectileSpawner(_playerPoolManager);
-        }
-
-        private void ConfigureManagers()
-        {
-            var experienceManager = new ExperienceManager(); ;
         }
     }
 }

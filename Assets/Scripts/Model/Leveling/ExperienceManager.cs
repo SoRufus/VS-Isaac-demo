@@ -1,27 +1,28 @@
-﻿using R3;
+﻿using Model.Entities.Settings;
+using R3;
 using UnityEngine;
+using Zenject;
 
 namespace Model.Leveling
 {
     public class ExperienceManager
     {
+        private readonly ExperienceConfig _config;
         private readonly ReactiveProperty<int> _level = new();
         private readonly ReactiveProperty<Vector2> _currentTotalExperience = new();
         
-        private float _expRequiredMultiplier = 3; //TEMP
-        
-        public ExperienceManager()
+        [Inject]
+        public ExperienceManager(GameSettings gameSettings)
         {
-
-            _currentTotalExperience.Value =
-                new Vector2(0, _level.Value * 10);
+            _config = gameSettings.ExperienceConfig;
+            _currentTotalExperience.Value = new Vector2(0, _config.GetExperienceRequiredToLevelUp(Level.CurrentValue));
         }
 
         public void ModifyExperience(int value)
         {
             _currentTotalExperience.Value += new Vector2(value, 0);
-
-            if (_currentTotalExperience.CurrentValue.x >= _level.Value * _expRequiredMultiplier)
+            
+            if (_currentTotalExperience.CurrentValue.x >= _config.GetExperienceRequiredToLevelUp(Level.CurrentValue))
             {
                 LevelUp();
             }
@@ -30,7 +31,7 @@ namespace Model.Leveling
         private void LevelUp()
         {
             _level.Value++;
-            _currentTotalExperience.Value = new Vector2(0, _level.Value * _expRequiredMultiplier);
+            _currentTotalExperience.Value = new Vector2(0, _config.GetExperienceRequiredToLevelUp(Level.CurrentValue));
         }
 
         public ReadOnlyReactiveProperty<int> Level => _level;

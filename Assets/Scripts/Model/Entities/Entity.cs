@@ -5,6 +5,7 @@ using System.Threading;
 using Core.Entities;
 using Cysharp.Threading.Tasks;
 using Model.Entities.Enemies;
+using Model.Entities.Settings;
 using Model.Entities.Spawner;
 using Model.Entities.Statistics;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Model.Entities
     public class Entity: MonoBehaviour, IEntity
     {
         [Inject] private readonly EntityPoolManager _entityPoolManager;
+        [Inject] private readonly GameSettings _settings;
         
         [field: SerializeField] public List<StatisticData> EntityStatistics { get; private set; }
         

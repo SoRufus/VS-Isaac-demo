@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Model.Leveling
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/" + nameof(ExperienceConfig))]
-    public class ExperienceConfig : ScriptableObject
+    [Serializable]
+    public class ExperienceConfig
     {
         [SerializeField] private List<int> _experienceRequiredPerLevel = new();
 
