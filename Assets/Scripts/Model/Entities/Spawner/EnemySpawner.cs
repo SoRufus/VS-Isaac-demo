@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Model.Entities.Enemies;
-using Model.Entities.Settings;
+using Model.Settings;
 using UnityEngine;
 using Zenject;
 
@@ -21,7 +21,7 @@ namespace Model.Entities.Spawner
             _config = settings.EnemySpawnerConfig;
             _player = player;
             _entityPoolManager = entityPoolManager;
-        }
+        }   
 
         public void Start()
         {

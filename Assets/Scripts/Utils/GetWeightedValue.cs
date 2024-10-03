@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Utils
 {
-    public class WeightedValue
+    public class GetWeightedValue
     {
-        public static T GetWeightedValue<T>(List<float> weights, List<T> options)
+        public static T Get<T>(List<float> weights, List<T> options)
         {
-            float total = weights.Sum();
-            float random = UnityEngine.Random.Range(0f, total);
-            float current = 0f;
+            var total = weights.Sum();
+            var random = Random.Range(0f, total);
+            var current = 0f;
             for (int i = 0; i < weights.Count; i++)
             {
                 current += weights[i];

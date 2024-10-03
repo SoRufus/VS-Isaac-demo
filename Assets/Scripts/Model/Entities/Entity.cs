@@ -5,9 +5,9 @@ using System.Threading;
 using Core.Entities;
 using Cysharp.Threading.Tasks;
 using Model.Entities.Enemies;
-using Model.Entities.Settings;
 using Model.Entities.Spawner;
 using Model.Entities.Statistics;
+using Model.Settings;
 using UnityEngine;
 using Zenject;
 

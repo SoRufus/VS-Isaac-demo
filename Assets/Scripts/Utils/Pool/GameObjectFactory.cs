@@ -14,7 +14,7 @@ namespace Utils.Pool
 
         public GameObject Create(GameObject prefab, Transform parentTransform = null)
         {
-            GameObject newObject = _container.InstantiatePrefab(prefab, parentTransform);
+            var newObject = _container.InstantiatePrefab(prefab, parentTransform);
             return newObject;
         }
     }

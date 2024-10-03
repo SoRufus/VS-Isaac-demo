@@ -1,4 +1,4 @@
-﻿using Model.Entities.Settings;
+﻿using Model.Settings;
 using UnityEngine;
 using Zenject;
 

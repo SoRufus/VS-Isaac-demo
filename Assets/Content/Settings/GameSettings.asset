@@ -20,3 +20,7 @@ MonoBehaviour:
     <MaxSpawnRadius>k__BackingField: 7
     <Amount>k__BackingField: 3
     <Frequency>k__BackingField: 1
+  <CardsConfig>k__BackingField:
+    <CardsAmount>k__BackingField: 3
+    <CardPrefab>k__BackingField: {fileID: 2972180553246677433, guid: 873833e341e2fbb448d4f7d5d3b06d88, type: 3}
+    <CardWindowPrefab>k__BackingField: {fileID: 8473495878759665120, guid: ef1964e57baeb6b4d91ad241015ab69a, type: 3}
