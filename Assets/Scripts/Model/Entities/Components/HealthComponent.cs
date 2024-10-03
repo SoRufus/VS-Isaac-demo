@@ -2,6 +2,7 @@
 using Model.Entities.Statistics;
 using R3;
 using UnityEngine;
+using Utils;
 
 namespace Model.Entities.Components
 {
@@ -34,7 +35,7 @@ namespace Model.Entities.Components
         {
             if (!CanDamage() && value < 0) return;
             
-            _healthData.ModifyValue(value);
+            _healthData.ModifyValue(OperationType.Add, value);
             TryApplyInvincibility();
             TryApplyKnockBack();
         }

@@ -1,6 +1,4 @@
-﻿using Model.Entities.Player;
-using Model.Entities.Spawner;
-using Model.Leveling;
+﻿using Model.Entities.Spawner;
 using UnityEngine;
 using Zenject;
 

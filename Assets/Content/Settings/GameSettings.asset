@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   <ExperienceConfig>k__BackingField:
-    _experienceRequiredPerLevel: 05000000080000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000
+    _experienceRequiredPerLevel: 03000000080000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000
   <EnemySpawnerConfig>k__BackingField:
     <EntityPrefab>k__BackingField: {fileID: 4586636332081444595, guid: 276f0374e79f06f44895eb380bd27c25, type: 3}
     <MinSpawnRadius>k__BackingField: 6
@@ -22,7 +22,12 @@ MonoBehaviour:
     <Frequency>k__BackingField: 1
   <CardsConfig>k__BackingField:
     <CardsAmount>k__BackingField: 3
-    <CardPrefab>k__BackingField: {fileID: 2972180553246677433, guid: 873833e341e2fbb448d4f7d5d3b06d88, type: 3}
-    <CardWindowPrefab>k__BackingField: {fileID: 8473495878759665120, guid: ef1964e57baeb6b4d91ad241015ab69a, type: 3}
+    <CardPrefab>k__BackingField: {fileID: 8473495878759665120, guid: ef1964e57baeb6b4d91ad241015ab69a, type: 3}
+    <CardWindowPrefab>k__BackingField: {fileID: 2972180553246677433, guid: 873833e341e2fbb448d4f7d5d3b06d88, type: 3}
   <UpgradesConfig>k__BackingField:
-    _upgrades: []
+    _upgrades:
+    - {fileID: 11400000, guid: f9fbec6206e6c6243bae3d29881a576f, type: 2}
+    - {fileID: 11400000, guid: 5cc114efef5112d40a485c8a16e514f0, type: 2}
+    - {fileID: 11400000, guid: 55a9c720424d85544a0a059957a4f60c, type: 2}
+    - {fileID: 11400000, guid: e0f5de9e6549a4243b85b029bb9f009e, type: 2}
+    - {fileID: 11400000, guid: 402542847323a874abfa43bed44e5351, type: 2}

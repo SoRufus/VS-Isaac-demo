@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Model.Entities.Statistics;
 using UnityEngine;
 using Utils;
 
@@ -17,9 +16,9 @@ namespace Model.Upgrades
             _upgrades = GetEveryAssetOfType.Get<UpgradeConfig>().ToList();
         }
 
-        public StatisticData GetUpgrade()
+        public UpgradeConfig GetUpgrade()
         {
-            return GetWeightedValue.Get(_upgrades.Select(x => x.Chance).ToList(), _upgrades).Statistic;
+            return GetWeightedValue.Get(_upgrades.Select(x => x.Chance).ToList(), _upgrades);
         }
     }
 }

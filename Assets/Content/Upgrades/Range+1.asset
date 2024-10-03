@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf2344399eaa437dac4f5126f7137b5d, type: 3}
-  m_Name: Health+1
+  m_Name: Range+1
   m_EditorClassIdentifier: 
-  <Statistic>k__BackingField:
-    <Statistic>k__BackingField: {fileID: 0}
-    _baseValue: 1
-    _currentValue: 1
-  <Chance>k__BackingField: 0
+  <Name>k__BackingField: Range
+  <Statistic>k__BackingField: {fileID: 11400000, guid: 351a115bdda169448ac5676712091c67, type: 2}
+  <Value>k__BackingField: 1
+  <OperationType>k__BackingField: 0
+  <Chance>k__BackingField: 1

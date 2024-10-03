@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Action = Unity.Plastic.Antlr3.Runtime.Misc.Action;
 
 namespace Model.UI
 {
@@ -12,11 +11,18 @@ namespace Model.UI
         public void Setup(T data)
         {
             Data = data;
+            OnShow();
         }
 
+        public virtual void OnShow()
+        {
+            
+        }
+        
         public virtual void Dispose()
         {
             OnHidden?.Invoke();
+            Destroy(gameObject);
         }
     }
 }

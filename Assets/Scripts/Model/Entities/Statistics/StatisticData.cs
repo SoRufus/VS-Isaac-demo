@@ -1,6 +1,7 @@
 ﻿using System;
 using R3;
 using UnityEngine;
+using Utils;
 
 namespace Model.Entities.Statistics
 {
@@ -20,10 +21,27 @@ namespace Model.Entities.Statistics
             _currentValue = value;
         }
 
-        public void ModifyValue(float value)
+        public void ModifyValue(OperationType type, float value)
         {
-            _reactiveValue.Value += value;
-            _currentValue += value;
+            switch (type)
+            {
+                case OperationType.Add:
+                    _reactiveValue.Value += value;
+                    _currentValue += value;
+                    break;
+                case OperationType.Multiply:
+                    _reactiveValue.Value *= value;
+                    _currentValue *= value;
+                    break;
+                case OperationType.Set:
+                    _reactiveValue.Value = value;
+                    _currentValue = value;
+                    break;
+                default:
+                    _reactiveValue.Value += value;
+                    _currentValue += value;
+                    break;
+            }
         }
         
         public void SetToBaseValue()

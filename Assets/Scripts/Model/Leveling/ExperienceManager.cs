@@ -22,7 +22,6 @@ namespace Model.Leveling
             _cardsConfig = gameSettings.CardsConfig;
             _uiManager = uiManager;
             _currentTotalExperience.Value = new Vector2(0, _experienceConfig.GetExperienceRequiredToLevelUp(Level.CurrentValue));
-            
         }
 
         public void ModifyExperience(int value)

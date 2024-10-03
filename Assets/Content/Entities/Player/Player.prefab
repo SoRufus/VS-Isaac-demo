@@ -103,10 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EntityStatistics>k__BackingField:
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 8561eaef305a1184798f6771005949b8, type: 2}
-    _baseValue: 0.3
+    _baseValue: 1
     _currentValue: 0.3
   - <Statistic>k__BackingField: {fileID: 11400000, guid: e9030839f061c5442b3078868a2d6e51, type: 2}
-    _baseValue: 1
+    _baseValue: 5
     _currentValue: 1
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 3ae32edfe835bf54895a69d38bc1e3ca, type: 2}
     _baseValue: 2

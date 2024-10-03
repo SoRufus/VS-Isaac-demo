@@ -1,7 +1,9 @@
-﻿using Model.Cards;
+﻿using System;
+using Model.Cards;
 using Model.Entities.Spawner;
 using Model.Leveling;
 using Model.Upgrades;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Model.Settings
@@ -14,5 +16,11 @@ namespace Model.Settings
         [field: SerializeField] public CardsConfig CardsConfig { get; private set; }
         [field: SerializeField] public UpgradesConfig UpgradesConfig { get; private set; }
 
+        [Button(nameof(LoadUpgrades))]
+        [SerializeField]
+        public void LoadUpgrades()
+        {
+            UpgradesConfig.LoadUpgrades();   
+        }
     }
 }

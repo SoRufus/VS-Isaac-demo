@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2344399eaa437dac4f5126f7137b5d, type: 3}
   m_Name: Damage+1
   m_EditorClassIdentifier: 
-  <Statistic>k__BackingField:
-    <Statistic>k__BackingField: {fileID: 0}
-    _baseValue: 1
-    _currentValue: 1
-  <Chance>k__BackingField: 0
+  <Name>k__BackingField: Damage
+  <Statistic>k__BackingField: {fileID: 11400000, guid: e9030839f061c5442b3078868a2d6e51, type: 2}
+  <Value>k__BackingField: 1
+  <OperationType>k__BackingField: 0
+  <Chance>k__BackingField: 1

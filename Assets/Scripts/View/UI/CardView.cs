@@ -1,18 +1,34 @@
-﻿using Model.Cards;
-using Model.Entities.Player;
+﻿using System;
+using Model.Cards;
+using Model.Upgrades;
+using TMPro;
 using UnityEngine;
-using Zenject;
+using R3;
 
 namespace View.UI
 {
     public class CardView: MonoBehaviour
     {
-        private readonly Player _player;
+        [SerializeField] private Card _card;
+        [SerializeField] private TextMeshProUGUI _label;
+
+        private IDisposable _disposable;
         
-        [Inject]
-        private CardView(Player player, CardsConfig cardsConfig)
+        private void OnEnable()
         {
-            _player = player;
+            _disposable = _card.Config.Subscribe(SetLabel);
+        }
+        
+        private void OnDisable()
+        {
+            _disposable?.Dispose();
+        }
+
+        private void SetLabel(UpgradeConfig config)
+        {
+            if (config == null) return;
+            
+            _label.text = $"{config.Name}+";
         }
     }
 }
