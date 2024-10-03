@@ -17,6 +17,7 @@ namespace Bootstrap.Level.Installers
 
             Container.Bind<ExperienceManager>().AsSingle();
             Container.Bind<ProjectileSpawner>().AsSingle();
+            Container.Bind<EnemySpawner>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<Controls>().AsSingle().NonLazy();
         }

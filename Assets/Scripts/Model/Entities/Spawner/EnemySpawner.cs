@@ -1,7 +1,9 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Model.Entities.Enemies;
+using Model.Entities.Settings;
 using UnityEngine;
+using Zenject;
 
 namespace Model.Entities.Spawner
 {
@@ -9,13 +11,14 @@ namespace Model.Entities.Spawner
     {
         private readonly Player.Player _player;
         private readonly EnemySpawnerConfig _config;
-
-        private CancellationTokenSource _cancellationTokenSource;
         private readonly EntityPoolManager _entityPoolManager;
 
-        public EnemySpawner(EnemySpawnerConfig config, Player.Player player, EntityPoolManager entityPoolManager)
+        private CancellationTokenSource _cancellationTokenSource;
+
+        [Inject]
+        public EnemySpawner(GameSettings settings, Player.Player player, EntityPoolManager entityPoolManager)
         {
-            _config = config;
+            _config = settings.EnemySpawnerConfig;
             _player = player;
             _entityPoolManager = entityPoolManager;
         }

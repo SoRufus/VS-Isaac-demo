@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Model.Entities.Spawner
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/" + nameof(EnemySpawnerConfig))]
-    public class EnemySpawnerConfig: ScriptableObject
+    [Serializable]
+    public class EnemySpawnerConfig
     {
         [field: SerializeField] public Entity EntityPrefab { get; private set; }
         [field: SerializeField] public float MinSpawnRadius { get; private set; }

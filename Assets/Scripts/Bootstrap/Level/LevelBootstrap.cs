@@ -8,11 +8,7 @@ namespace Bootstrap.Level
 {
     public class LevelBootstrap: MonoBehaviour
     {
-        [Inject] private readonly Player _player;
-        [Inject] private readonly EntityPoolManager _playerPoolManager;
-        [Inject] private readonly ExperienceManager _experienceManager;
-        
-        [SerializeField] private EnemySpawnerConfig _enemySpawnerConfig;
+        [Inject] private readonly EnemySpawner _enemySpawner;
         
         private void Awake()
         {
@@ -21,10 +17,7 @@ namespace Bootstrap.Level
 
         private void ConfigureSpawner()
         {
-            var enemySpawner = new EnemySpawner(_enemySpawnerConfig, _player, _playerPoolManager);
-            enemySpawner.Start();
-            
-            var projectileSpawner = new ProjectileSpawner(_playerPoolManager);
+            _enemySpawner.Start();
         }
     }
 }

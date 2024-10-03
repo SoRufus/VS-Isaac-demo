@@ -1,5 +1,6 @@
 ﻿using Model.Entities.Components;
 using Model.Entities.Projectiles;
+using Zenject;
 
 namespace Model.Entities.Spawner
 {
@@ -7,6 +8,7 @@ namespace Model.Entities.Spawner
     {
         private readonly EntityPoolManager _entityPoolManager;
         
+        [Inject]
         public ProjectileSpawner(EntityPoolManager entityPoolManager)
         {
             _entityPoolManager = entityPoolManager;
