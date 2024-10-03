@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: <EntityStatistics>k__BackingField.Array.data[1]._baseValue
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6376690940147116937, guid: d8bf1fb0c9eb1704aa8565596b5277a4, type: 3}
+      propertyPath: <EntityStatistics>k__BackingField.Array.data[1]._currentValue
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6412166150599534516, guid: d8bf1fb0c9eb1704aa8565596b5277a4, type: 3}
       propertyPath: m_Name
       value: Enemy 1

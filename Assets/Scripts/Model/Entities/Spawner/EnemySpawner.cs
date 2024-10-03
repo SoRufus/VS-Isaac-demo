@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Model.Entities.Enemies;
+using Model.Entities.Waves;
 using Model.Settings;
 using UnityEngine;
 using Zenject;
@@ -12,15 +13,18 @@ namespace Model.Entities.Spawner
         private readonly Player.Player _player;
         private readonly EnemySpawnerConfig _config;
         private readonly EntityPoolManager _entityPoolManager;
+        private readonly WavesManager _wavesManager;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         [Inject]
-        public EnemySpawner(GameSettings settings, Player.Player player, EntityPoolManager entityPoolManager)
+        public EnemySpawner(Player.Player player, EntityPoolManager entityPoolManager, WavesManager wavesManager,
+            GameSettings settings)
         {
-            _config = settings.EnemySpawnerConfig;
+            _wavesManager = wavesManager;
             _player = player;
             _entityPoolManager = entityPoolManager;
+            _config = settings.EnemySpawnerConfig;
         }   
 
         public void Start()
@@ -33,16 +37,16 @@ namespace Model.Entities.Spawner
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                await UniTask.WaitForSeconds(_config.Frequency, cancellationToken: cancellationToken);
+                await UniTask.WaitForSeconds(_wavesManager.CurrentWaveConfig.Frequency, cancellationToken: cancellationToken);
                 Spawn();
             }
         }
         
         private void Spawn()
         {
-            for (int i = 0; i < _config.Amount; i++)
+            for (int i = 0; i < _wavesManager.CurrentWaveConfig.Amount; i++)
             {
-                var spawnData = new EntitySpawnData(_config.EntityPrefab, GetRandomPosition());
+                var spawnData = new EntitySpawnData(_wavesManager.CurrentWaveConfig.EntityPrefab, GetRandomPosition());
                 _entityPoolManager.Get<Enemy>(spawnData);
             }
         }
@@ -55,12 +59,6 @@ namespace Model.Entities.Spawner
             var spawnPosition = (Vector2)_player.transform.position + spawnDirection * distance;
 
             return spawnPosition;
-        }
-
-        public void Dispose()
-        {
-            _cancellationTokenSource?.Cancel();
-            _cancellationTokenSource?.Dispose();
         }
     }
 }

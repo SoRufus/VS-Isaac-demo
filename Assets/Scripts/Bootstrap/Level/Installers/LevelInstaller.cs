@@ -1,5 +1,6 @@
 using Model.Entities.Player;
 using Model.Entities.Spawner;
+using Model.Entities.Waves;
 using Model.GameState;
 using Model.Leveling;
 using Model.UI;
@@ -21,6 +22,7 @@ namespace Bootstrap.Level.Installers
             Container.Bind<EnemySpawner>().AsSingle();
             Container.Bind<UIManager>().AsSingle();
             Container.Bind<GameStateManager>().AsSingle();
+            Container.Bind<WavesManager>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<Controls>().AsSingle().NonLazy();
         }

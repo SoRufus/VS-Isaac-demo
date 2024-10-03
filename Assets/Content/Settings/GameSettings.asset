@@ -15,11 +15,20 @@ MonoBehaviour:
   <ExperienceConfig>k__BackingField:
     _experienceRequiredPerLevel: 03000000080000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000
   <EnemySpawnerConfig>k__BackingField:
-    <EntityPrefab>k__BackingField: {fileID: 4586636332081444595, guid: 276f0374e79f06f44895eb380bd27c25, type: 3}
     <MinSpawnRadius>k__BackingField: 6
     <MaxSpawnRadius>k__BackingField: 7
-    <Amount>k__BackingField: 0
-    <Frequency>k__BackingField: 1
+    <WavesChangingFrequency>k__BackingField: 10
+    _waves:
+    - {fileID: 11400000, guid: 45744cc26687e6647841cc9846a48bb7, type: 2}
+    - {fileID: 11400000, guid: c53918689e175f34d95ec15377559abd, type: 2}
+    - {fileID: 11400000, guid: bc6315d3e39dfb0409dc61a265f60b96, type: 2}
+    - {fileID: 11400000, guid: 8d94a5978e3992840a2537abeb631a4a, type: 2}
+    - {fileID: 11400000, guid: 8f9b6425bba47da4abc995a07ffd46c6, type: 2}
+    - {fileID: 11400000, guid: aa8bc0e4248f0704984a62bb21841c27, type: 2}
+    - {fileID: 11400000, guid: df174a1baaebe00428d0eaad82fc1c42, type: 2}
+    - {fileID: 11400000, guid: 75bcffeeca9288f42b8366eba3ec0998, type: 2}
+    - {fileID: 11400000, guid: 962c8c815a0547e4784e517607f0bd69, type: 2}
+    - {fileID: 11400000, guid: 22b29a2aebf846e42842bcd54a9c3061, type: 2}
   <CardsConfig>k__BackingField:
     <CardsAmount>k__BackingField: 3
     <CardPrefab>k__BackingField: {fileID: 8473495878759665120, guid: ef1964e57baeb6b4d91ad241015ab69a, type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cb78ca3d7476ab51e8afdffcd51ff, type: 3}
+  m_Name: Wave 3
+  m_EditorClassIdentifier: 
+  <EntityPrefab>k__BackingField: {fileID: 4586636332081444595, guid: 276f0374e79f06f44895eb380bd27c25, type: 3}
+  <Amount>k__BackingField: 2
+  <Frequency>k__BackingField: 1
