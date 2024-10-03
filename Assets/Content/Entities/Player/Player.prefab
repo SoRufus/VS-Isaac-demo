@@ -112,11 +112,11 @@ MonoBehaviour:
     _baseValue: 2
     _currentValue: 3
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 351a115bdda169448ac5676712091c67, type: 2}
-    _baseValue: 2
-    _currentValue: 2
+    _baseValue: 5
+    _currentValue: 5
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 05e93b7dbc5edd6448114f63429d62e8, type: 2}
     _baseValue: 5
-    _currentValue: 1
+    _currentValue: 5
   - <Statistic>k__BackingField: {fileID: 11400000, guid: 1bd8285b90238074eaaad09126db9eef, type: 2}
     _baseValue: 6
     _currentValue: 1

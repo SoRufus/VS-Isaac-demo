@@ -18,7 +18,7 @@ MonoBehaviour:
     <EntityPrefab>k__BackingField: {fileID: 4586636332081444595, guid: 276f0374e79f06f44895eb380bd27c25, type: 3}
     <MinSpawnRadius>k__BackingField: 6
     <MaxSpawnRadius>k__BackingField: 7
-    <Amount>k__BackingField: 3
+    <Amount>k__BackingField: 0
     <Frequency>k__BackingField: 1
   <CardsConfig>k__BackingField:
     <CardsAmount>k__BackingField: 3

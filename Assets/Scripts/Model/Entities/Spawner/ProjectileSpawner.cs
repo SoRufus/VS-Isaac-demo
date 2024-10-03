@@ -23,7 +23,7 @@ namespace Model.Entities.Spawner
             contactDamageComponent.SetContactDamage(projectileData.Damage);
             contactDamageComponent.OnHit += (entity) => OnHit(projectile, entity, projectileData);
             
-            projectile.DisposeAfterTime(projectileData.LifeTime);
+            projectile.DisposeAfterTime(projectileData.LifeTime / projectileData.ShootingSpeed);
         }
 
         private void OnHit(Entity projectile, Entity target, ProjectileData data)

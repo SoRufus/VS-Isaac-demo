@@ -1,5 +1,6 @@
 using Model.Entities.Player;
 using Model.Entities.Spawner;
+using Model.GameState;
 using Model.Leveling;
 using Model.UI;
 using Utils.Pool;
@@ -19,6 +20,7 @@ namespace Bootstrap.Level.Installers
             Container.Bind<ProjectileSpawner>().AsSingle();
             Container.Bind<EnemySpawner>().AsSingle();
             Container.Bind<UIManager>().AsSingle();
+            Container.Bind<GameStateManager>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<Controls>().AsSingle().NonLazy();
         }
