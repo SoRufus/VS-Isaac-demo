@@ -11,8 +11,7 @@ namespace Model.Upgrades
     public class UpgradesConfig
     {
         [SerializeField] private List<UpgradeConfig> _upgrades = new();
-
-        [ContextMenu("Load")]
+        
         public void LoadUpgrades()
         {
             _upgrades = GetEveryAssetOfType.Get<UpgradeConfig>().ToList();
